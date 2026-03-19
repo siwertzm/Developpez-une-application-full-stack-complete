@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start": "mvnd spring-boot:run"
+  }
+}
