@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="container">
+
+    <!-- LOGO -->
+    <div class="left">
+      <img src="/assets/logo_p6.png" alt="Logo MDD" class="logo" />
+    </div>
+
+    <!-- MENU (uniquement connecté) -->
+    <nav class="right" *ngIf="mode === 'private'">
+      <a routerLink="/feed" routerLinkActive="active">Articles</a>
+      <a routerLink="/topics" routerLinkActive="active">Thèmes</a>
+      <a routerLink="/profile" class="profile">
+        <mat-icon>account_circle</mat-icon>
+      </a>
+    </nav>
+
+  </div>
+</header>

@@ -1,0 +1,38 @@
+.header {
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.logo {
+  height: 90px;
+}
+
+/* MENU */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.right a {
+  text-decoration: none;
+  color: black;
+}
+
+.right a.active {
+  color: #c62828;
+  font-weight: 500;
+}
+
+.profile mat-icon {
+  font-size: 36px;
+  color: #bdbdbd;
+}

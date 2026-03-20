@@ -1,0 +1,126 @@
+.register-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px 40px;
+  box-sizing: border-box;
+}
+
+.register-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-btn {
+  position: absolute;
+  top: 0;
+  left: -56px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.back-btn mat-icon {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+  color: black;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.submit-btn {
+  align-self: center;
+  margin-top: 8px;
+  min-width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #7550ec;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  opacity: 0.95;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .desktop-header {
+    display: none;
+  }
+
+  .register-page {
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: 24px 20px 32px;
+  }
+
+  .register-card {
+    max-width: 100%;
+    padding-top: 12px;
+  }
+
+  .back-btn {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .mobile-logo {
+    display: block;
+    width: 170px;
+    max-width: 70%;
+    height: auto;
+    margin: 0 auto 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  .submit-btn {
+    min-width: 120px;
+    height: 38px;
+    margin-top: 6px;
+  }
+}
