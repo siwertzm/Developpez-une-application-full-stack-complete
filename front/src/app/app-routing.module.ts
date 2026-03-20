@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FeedComponent } from './pages/feed/feed.component';
 import { authGuard } from './core/guards/auth.guard';
 import { TopicsComponent } from './pages/topics/topics.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'feed', component: FeedComponent, canActivate: [authGuard] },
   { path: 'topics', component: TopicsComponent, canActivate: [authGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'feed' }
 ];
 

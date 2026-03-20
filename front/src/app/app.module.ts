@@ -16,6 +16,7 @@ import { FeedComponent } from './pages/feed/feed.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { TopicsComponent } from './pages/topics/topics.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TopicsComponent } from './pages/topics/topics.component';
     LoginComponent,
     FeedComponent,
     TopicsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
