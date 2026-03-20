@@ -59,6 +59,29 @@
   font-weight: 700;
 }
 
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.post-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* TOPIC BADGE */
+.topic {
+  font-size: 12px;
+  background-color: #ede7ff;
+  color: #6c3ef4;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
 .post-meta {
   display: flex;
   gap: 32px;
