@@ -1,1 +1,33 @@
-<app-header class="desktop-header" mode="private"></app-header>
+<div class="feed-page">
+  <app-header mode="private"></app-header>
+
+  <!-- CONTENU -->
+  <div class="feed-content">
+    <div class="feed-toolbar">
+      <button class="create-btn" routerLink="/create-post">Créer un article</button>
+
+      <button class="sort-btn" type="button" (click)="toggleSort()">
+        Trier par
+        <span>{{ sort === 'desc' ? '↓' : '↑' }}</span>
+      </button>
+    </div>
+
+    <p class="status-message" *ngIf="loading">Chargement...</p>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <div class="posts-grid" *ngIf="!loading && !errorMessage">
+      <article class="post-card" *ngFor="let post of posts; trackBy: trackByPostId">
+        <h2>{{ post.title }}</h2>
+
+        <div class="post-meta">
+          <span>{{ post.createdAt | date:'dd/MM/yyyy' }}</span>
+          <span>{{ post.authorUsername }}</span>
+        </div>
+
+        <p class="post-content">
+          {{ post.content }}
+        </p>
+      </article>
+    </div>
+  </div>
+</div>
