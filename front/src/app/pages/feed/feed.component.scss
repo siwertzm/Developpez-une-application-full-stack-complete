@@ -1,7 +1,7 @@
 .feed-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   background: #fff;
-  margin-top: 80px; // hauteur du header desktop
+  margin-top: 80px;
 }
 
 .feed-content {
