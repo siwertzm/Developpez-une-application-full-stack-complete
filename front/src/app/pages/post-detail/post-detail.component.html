@@ -1,0 +1,64 @@
+<app-header mode="private"></app-header>
+
+<div class="post-detail-page">
+  <div class="post-detail-wrapper">
+    <p class="status-message" *ngIf="loading">Chargement...</p>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <ng-container *ngIf="post && !loading">
+      <div class="post-header-row">
+        <button class="back-btn" type="button" (click)="goBack()" aria-label="Retour">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <h1>{{ post.title }}</h1>
+      </div>
+
+      <div class="post-meta">
+        <span>{{ post.createdAt | date:'dd/MM/yyyy' }}</span>
+        <span>{{ post.authorUsername }}</span>
+        <span>{{ post.topicName }}</span>
+      </div>
+
+      <p class="post-content">
+        {{ post.content }}
+      </p>
+
+      <div class="separator"></div>
+
+      <section class="comments-section">
+        <h2>Commentaires</h2>
+
+        <div class="comments-list" *ngIf="post.comments.length > 0; else noComments">
+          <div
+            class="comment-row"
+            *ngFor="let comment of post.comments; trackBy: trackByCommentId"
+          >
+            <div class="comment-author">
+              {{ comment.authorUsername }}
+            </div>
+
+            <div class="comment-box">
+              {{ comment.content }}
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noComments>
+          <p class="empty-message">Aucun commentaire pour le moment.</p>
+        </ng-template>
+
+        <form class="comment-form" [formGroup]="commentForm" (ngSubmit)="submitComment()">
+          <textarea
+            formControlName="content"
+            placeholder="Écrivez ici votre commentaire"
+          ></textarea>
+
+          <button class="send-btn" type="submit" [disabled]="sending" aria-label="Envoyer">
+            <mat-icon>send</mat-icon>
+          </button>
+        </form>
+      </section>
+    </ng-container>
+  </div>
+</div>

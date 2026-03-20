@@ -7,6 +7,8 @@ import { FeedComponent } from './pages/feed/feed.component';
 import { authGuard } from './core/guards/auth.guard';
 import { TopicsComponent } from './pages/topics/topics.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +17,7 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent, canActivate: [authGuard] },
   { path: 'topics', component: TopicsComponent, canActivate: [authGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  { path: 'posts/:id', component: PostDetailComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'feed' }
 ];
 

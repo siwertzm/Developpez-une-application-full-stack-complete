@@ -18,7 +18,11 @@
     <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
 
     <div class="posts-grid" *ngIf="!loading && !errorMessage">
-      <article class="post-card" *ngFor="let post of posts">
+      <article
+        class="post-card"
+        *ngFor="let post of posts; trackBy: trackByPostId"
+        [routerLink]="['/posts', post.id]"
+      >
         <div class="post-header">
           <h2>{{ post.title }}</h2>
           <span class="topic">{{ post.topicName }}</span>

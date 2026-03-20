@@ -17,6 +17,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { TopicsComponent } from './pages/topics/topics.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FeedComponent,
     TopicsComponent,
     ProfileComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,

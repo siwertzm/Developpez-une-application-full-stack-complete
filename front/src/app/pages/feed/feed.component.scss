@@ -51,6 +51,23 @@
   padding: 18px;
   box-sizing: border-box;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.comments-badge {
+  font-size: 12px;
+  background-color: #ececec;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
 }
 
 .post-card h2 {
