@@ -18,6 +18,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { TopicsComponent } from './pages/topics/topics.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PostDetailComponent } from './pages/post-detail/post-detail.component';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { PostDetailComponent } from './pages/post-detail/post-detail.component';
     TopicsComponent,
     ProfileComponent,
     PostDetailComponent,
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { PostDetailComponent } from './pages/post-detail/post-detail.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatSelectModule,
     HttpClientModule,
   ],
   providers: [

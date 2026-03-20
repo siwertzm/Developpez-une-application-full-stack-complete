@@ -1,7 +1,6 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostDetail } from 'src/app/core/models/post.model';
 import { PostService } from 'src/app/core/services/post.service';
 
@@ -24,7 +23,7 @@ export class PostDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private postService: PostService,
     private fb: FormBuilder,
-    private location: Location
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +54,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/feed']);
   }
 
   submitComment(): void {
