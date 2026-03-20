@@ -5,6 +5,7 @@ import com.openclassrooms.mddapi.entity.Topic;
 import com.openclassrooms.mddapi.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,7 +15,9 @@ public interface PostRepository extends JpaRepository<Post, UUID> {
 
     List<Post> findByTopic(Topic topic);
 
-    List<Post> findByTopicInOrderByCreatedAtDesc(List<Topic> topics);
+    List<Post> findByTopicInOrderByCreatedAtDesc(Collection<Topic> topics);
+
+    List<Post> findByTopicInOrderByCreatedAtAsc(Collection<Topic> topics);
 
     List<Post> findAllByOrderByCreatedAtDesc();
 

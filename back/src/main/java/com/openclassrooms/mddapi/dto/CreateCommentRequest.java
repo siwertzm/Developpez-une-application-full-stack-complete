@@ -6,11 +6,8 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-public class LoginRequest {
+public class CreateCommentRequest {
 
     @NotBlank
-    private String login;
-
-    @NotBlank
-    private String password;
+    private String content;
 }
