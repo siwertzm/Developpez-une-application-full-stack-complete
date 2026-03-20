@@ -8,6 +8,9 @@
 
     <!-- MENU (uniquement connecté) -->
     <nav class="right" *ngIf="mode === 'private'">
+      <a (click)="logout()" class="logout">
+        <mat-icon>logout</mat-icon>
+      </a>
       <a routerLink="/feed" routerLinkActive="active">Articles</a>
       <a routerLink="/topics" routerLinkActive="active">Thèmes</a>
       <a routerLink="/profile" class="profile">

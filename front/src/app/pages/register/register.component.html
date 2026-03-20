@@ -26,8 +26,10 @@
         <input matInput type="password" formControlName="password" />
       </mat-form-field>
 
-      <button class="submit-btn" type="submit">
-        S'inscrire
+      <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <button class="submit-btn" type="submit" [disabled]="loading">
+        {{ loading ? 'Chargement...' : "S'inscrire" }}
       </button>
     </form>
   </div>

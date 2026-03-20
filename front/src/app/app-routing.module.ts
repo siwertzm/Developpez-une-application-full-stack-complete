@@ -4,12 +4,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FeedComponent } from './pages/feed/feed.component';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'feed', component: FeedComponent },
+  { path: 'feed', component: FeedComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: '' }
 ];
 

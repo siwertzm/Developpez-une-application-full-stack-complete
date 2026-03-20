@@ -69,6 +69,13 @@ form {
   cursor: pointer;
 }
 
+.error-message {
+  margin: 0;
+  text-align: center;
+  color: #c62828;
+  font-size: 14px;
+}
+
 .submit-btn:hover {
   opacity: 0.95;
 }
