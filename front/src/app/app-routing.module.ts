@@ -1,10 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FeedComponent } from './pages/feed/feed.component';
+import { authGuard } from './core/guards/auth.guard';
+import { TopicsComponent } from './pages/topics/topics.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
 
-// consider a guard combined with canLoad / canActivate route option
-// to manage unauthenticated user to access private routes
-const routes: Routes = [{ path: '', component: HomeComponent }];
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'feed', component: FeedComponent, canActivate: [authGuard] },
+  { path: 'topics', component: TopicsComponent, canActivate: [authGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  { path: 'posts/:id', component: PostDetailComponent, canActivate: [authGuard] },
+  { path: 'post/create', component: CreatePostComponent, canActivate: [authGuard] },
+  { path: '**', redirectTo: 'feed' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

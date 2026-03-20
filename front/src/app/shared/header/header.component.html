@@ -1,0 +1,87 @@
+<header class="header">
+  <!-- DESKTOP -->
+  <div class="desktop-header">
+    <div class="container">
+      <div class="left">
+        <img src="/assets/logo_p6.png" alt="Logo MDD" class="logo" />
+      </div>
+
+      <nav class="right" *ngIf="mode === 'private'">
+        <a
+          href="#"
+          class="logout-link"
+          (click)="logout(); $event.preventDefault()"
+        >
+          Se déconnecter
+        </a>
+        <a routerLink="/feed" routerLinkActive="active">Articles</a>
+        <a routerLink="/topics" routerLinkActive="active">Thèmes</a>
+        <a routerLink="/profile" class="profile">
+          <mat-icon>account_circle</mat-icon>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="mobile-header" *ngIf="mode === 'private'">
+    <img src="/assets/logo_p6.png" alt="Logo MDD" class="mobile-logo" />
+
+    <button
+      class="burger-btn"
+      type="button"
+      (click)="toggleMobileMenu()"
+      aria-label="Ouvrir le menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div
+    class="mobile-menu-overlay"
+    *ngIf="mode === 'private' && mobileMenuOpen"
+    (click)="closeMobileMenu()"
+  ></div>
+
+  <aside
+    class="mobile-menu"
+    *ngIf="mode === 'private'"
+    [class.open]="mobileMenuOpen"
+  >
+    <nav class="mobile-nav">
+      <button
+        class="close-menu-btn"
+        type="button"
+        (click)="closeMobileMenu()"
+        aria-label="Fermer le menu"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <a
+        href="#"
+        class="logout-link"
+        (click)="logout(); $event.preventDefault()"
+      >
+        Se déconnecter
+      </a>
+      <a
+        routerLink="/feed"
+        routerLinkActive="active"
+        (click)="closeMobileMenu()"
+      >
+        Articles
+      </a>
+      <a
+        routerLink="/topics"
+        routerLinkActive="active"
+        (click)="closeMobileMenu()"
+      >
+        Thèmes
+      </a>
+    </nav>
+
+    <a routerLink="/profile" class="mobile-profile" (click)="closeMobileMenu()">
+      <mat-icon>account_circle</mat-icon>
+    </a>
+  </aside>
+</header>
