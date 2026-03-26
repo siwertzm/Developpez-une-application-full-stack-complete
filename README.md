@@ -117,13 +117,8 @@ CREATE DATABASE mdd;
 Depuis le dossier `back` :
 
 ```bash
-./mvnw spring-boot:run
-```
-
-Sous Windows :
-
-```bash
-mvnw.cmd spring-boot:run
+mvn clean install
+npm run start
 ```
 
 Backend disponible sur :
@@ -172,43 +167,6 @@ Côté frontend, le token est géré via un interceptor Angular.
 - Consultation du profil utilisateur
 - Protection des routes côté frontend
 - Sécurisation des endpoints côté backend
-
----
-
-## 🧪 Tests
-
-### Backend
-
-Depuis le dossier `back` :
-
-```bash
-./mvnw test
-```
-
-Sous Windows :
-
-```bash
-mvnw.cmd test
-```
-
----
-
-## 🛠️ Architecture
-
-### Frontend
-Le frontend est organisé par responsabilités :
-- `core/` contient les briques transverses
-- `pages/` contient les écrans principaux
-- `shared/` contient les composants réutilisables
-
-### Backend
-Le backend suit une architecture Spring classique :
-- `controller/` pour exposer l’API REST
-- `service/` pour la logique métier
-- `repository/` pour l’accès à la base
-- `entity/` pour le modèle persistant
-- `dto/` pour les échanges API
-- `security/` pour JWT et Spring Security
 
 ---
 
