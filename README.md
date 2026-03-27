@@ -1,25 +1,186 @@
-# P6-Full-Stack-reseau-dev
+# 📘 MDD - Réseau Social
 
-## Front
+Application web de type réseau social permettant aux utilisateurs de partager des posts, commenter et interagir autour de sujets.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+---
 
-Don't forget to install your node_modules before starting (`npm install`).
+## 🚀 Stack technique
 
-### Development server
+### Backend
+- Java
+- Spring Boot
+- Spring Security (JWT)
+- Spring Data JPA
+- PostgreSQL
+- Maven
+- JUnit / Mockito
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Frontend
+- Angular
+- TypeScript
+- RxJS / HttpClient
+- SCSS
 
-### Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📂 Structure du projet
 
-### Where to start
+### Frontend (Angular)
 
-As you may have seen if you already started the app, a simple home page containing a logo, a title and a button is available. If you take a look at its code (in the `home.component.html`) you will see that an external UI library is already configured in the project.
+```text
+front/
+├── src/
+│   ├── app/
+│   │   ├── core/
+│   │   │   ├── guards/        # Protection des routes
+│   │   │   ├── interceptors/  # Ajout automatique du JWT
+│   │   │   ├── models/        # Interfaces TypeScript
+│   │   │   └── services/      # Appels API
+│   │   ├── pages/
+│   │   │   ├── create-post/   # Création de post
+│   │   │   ├── feed/          # Fil des posts
+│   │   │   ├── home/          # Accueil
+│   │   │   ├── login/         # Connexion
+│   │   │   ├── post-detail/   # Détail d’un post
+│   │   │   ├── profile/       # Profil utilisateur
+│   │   │   ├── register/      # Inscription
+│   │   │   └── topics/        # Gestion des topics
+│   │   ├── shared/            # Composants réutilisables
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.*
+│   │   └── app.module.ts
+│   ├── assets/
+│   ├── environments/
+│   ├── styles/
+│   └── index.html
+```
 
-This library is `@angular/material`, it's one of the most famous in the angular ecosystem. As you can see on their docs (https://material.angular.io/), it contains a lot of highly customizable components that will help you design your interfaces quickly.
+### Backend (Spring Boot)
 
-Note: I recommend to use material however it's not mandatory, if you prefer you can get rid of it.
+```text
+back/
+├── .mvn/
+├── src/
+│   ├── main/
+│   │   ├── java/com/openclassrooms/mddapi/
+│   │   │   ├── config/        # Configuration Spring
+│   │   │   ├── controller/    # Endpoints REST
+│   │   │   ├── dto/           # Objets de transfert
+│   │   │   ├── entity/        # Entités JPA
+│   │   │   ├── repository/    # Accès aux données
+│   │   │   ├── security/      # JWT, filtres, sécurité
+│   │   │   ├── service/       # Logique métier
+│   │   │   └── MddApiApplication.java
+│   │   └── resources/
+│   │       └── application.properties
+```
 
-Good luck!
+---
+
+## ⚙️ Configuration du backend
+
+Créer ou compléter le fichier :
+
+```text
+back/src/main/resources/application.properties
+```
+
+Avec :
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/mdd
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_PASSWORD
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+app.jwt.secret=YOUR_SECRET
+app.jwt.expiration=86400000
+```
+
+## 🗄️ Base de données
+
+Créer la base PostgreSQL :
+
+```sql
+CREATE DATABASE mdd;
+```
+
+---
+
+## 🚀 Lancement du projet
+
+### 1. Lancer le backend
+
+Depuis le dossier `back` :
+
+```bash
+mvn clean install
+npm run start
+```
+
+Backend disponible sur :
+
+```text
+http://localhost:8080/api
+```
+
+### 2. Lancer le frontend
+
+Depuis le dossier `front` :
+
+```bash
+npm install
+ng serve
+```
+
+Frontend disponible sur :
+
+```text
+http://localhost:4200
+```
+
+---
+
+## 🔐 Authentification
+
+L’application utilise une authentification JWT.
+
+### Endpoints principaux
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+
+Côté frontend, le token est géré via un interceptor Angular.
+
+---
+
+## 📝 Fonctionnalités
+
+- Inscription et connexion utilisateur
+- Création de posts
+- Affichage du feed
+- Consultation du détail d’un post
+- Ajout de commentaires
+- Gestion des topics
+- Consultation du profil utilisateur
+- Protection des routes côté frontend
+- Sécurisation des endpoints côté backend
+
+---
+
+## 📌 Pistes d’amélioration
+
+- Likes
+- Notifications
+- Recherche avancée
+- Pagination du feed
+- Upload d’images
+- Version mobile
+
+---
+
+## 📄 Licence
+
+Projet réalisé dans un cadre pédagogique.

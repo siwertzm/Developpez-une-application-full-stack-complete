@@ -1,0 +1,25 @@
+<app-header mode="private"></app-header>
+
+<div class="topics-page">
+  <p class="status-message" *ngIf="loading">Chargement...</p>
+  <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="topics-grid" *ngIf="!loading && !errorMessage">
+    <article class="topic-card" *ngFor="let topic of topics; trackBy: trackByTopicId">
+      <h2>{{ topic.name }}</h2>
+
+      <p class="topic-description">
+        {{ topic.description }}
+      </p>
+
+      <button
+        class="subscribe-btn"
+        [class.subscribed]="topic.subscribed"
+        type="button"
+        (click)="toggleSubscription(topic)"
+      >
+        {{ topic.subscribed ? 'Déjà abonné' : "S'abonner" }}
+      </button>
+    </article>
+  </div>
+</div>

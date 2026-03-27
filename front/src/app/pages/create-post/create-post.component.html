@@ -1,0 +1,43 @@
+<app-header mode="private"></app-header>
+
+<div class="create-post-page">
+  <div class="create-post-wrapper">
+    <div class="title-row">
+      <button class="back-btn" type="button" (click)="goBack()" aria-label="Retour">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <h1>Créer un nouvel article</h1>
+    </div>
+
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p class="status-message" *ngIf="loadingTopics">Chargement des thèmes...</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="topicId" placeholder="Sélectionner un thème">
+          <mat-option *ngFor="let topic of topics" [value]="topic.id">
+            {{ topic.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="title" placeholder="Titre de l'article" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <textarea
+          matInput
+          formControlName="content"
+          placeholder="Contenu de l'article"
+          rows="8"
+        ></textarea>
+      </mat-form-field>
+
+      <button class="create-btn" type="submit" [disabled]="creating || loadingTopics">
+        {{ creating ? 'Création...' : 'Créer' }}
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<app-header mode="private"></app-header>
+
+<div class="profile-page">
+  <div class="profile-wrapper">
+    <p class="status-message" *ngIf="loading">Chargement...</p>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p class="success-message" *ngIf="successMessage">{{ successMessage }}</p>
+
+    <ng-container *ngIf="!loading">
+      <section class="profile-section">
+        <h1>Profil utilisateur</h1>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Username" formControlName="username" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="email@email.fr" formControlName="email" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              type="password"
+              placeholder="Mot de passe"
+              formControlName="password"
+            />
+          </mat-form-field>
+
+          <button class="save-btn" type="submit" [disabled]="saving">
+            {{ saving ? 'Sauvegarde...' : 'Sauvegarder' }}
+          </button>
+        </form>
+      </section>
+
+      <div class="separator"></div>
+
+      <section class="subscriptions-section">
+        <h2>Abonnements</h2>
+
+        <div class="topics-grid" *ngIf="subscribedTopics.length > 0; else noSubscriptions">
+          <article
+            class="topic-card"
+            *ngFor="let topic of subscribedTopics; trackBy: trackByTopicId"
+          >
+            <h3>{{ topic.name }}</h3>
+
+            <p class="topic-description">
+              {{ topic.description }}
+            </p>
+
+            <button class="unsubscribe-btn" type="button" (click)="unsubscribe(topic)">
+              Se désabonner
+            </button>
+          </article>
+        </div>
+
+        <ng-template #noSubscriptions>
+          <p class="empty-message">Aucun abonnement pour le moment.</p>
+        </ng-template>
+      </section>
+    </ng-container>
+  </div>
+</div>
